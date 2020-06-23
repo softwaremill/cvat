@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-from django.urls import path
+from django.urls import path, re_path
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 
@@ -15,6 +15,8 @@ urlpatterns = [
         template_name='login.html', extra_context={'note': settings.AUTH_LOGIN_NOTE}),
         name='login'),
     path('logout', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    re_path('account_inactive', auth_views.LoginView.as_view(form_class=forms.AuthForm,
+        template_name='login.html', extra_context={'note': settings.AUTH_LOGIN_NOTE}), name='account_inactive')
 ]
 
 if settings.DJANGO_AUTH_TYPE == 'BASIC':

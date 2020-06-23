@@ -13,6 +13,7 @@
 !/ssh/README.md
 node_modules
 /Mask_RCNN/
+/venv
 
 # Ignore temporary files
 docker-compose.override.yml
@@ -30,3 +31,5 @@ yarn-debug.log*
 yarn-error.log*
 
 .DS_Store
+
+.idea/
